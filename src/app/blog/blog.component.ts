@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { BlogService } from '../blog.service';
 import { Blog } from '../Blog'
+import { BlogListComponent } from '../blog-list/blog-list.component';
 
 @Component({
   selector: 'app-blog',
@@ -11,19 +14,20 @@ export class BlogComponent implements OnInit {
 
   blog : Blog;
   resp : any;
-  message : string
-  email : string
-  constructor(private blogService : BlogService) { 
-  }
+  
+  constructor(private blogService : BlogService,  
+    private router : Router) {  }
 
   ngOnInit(): void {
-    this.blog = new Blog("","");
+    this.blog = new Blog();
   }
 
   public submitBlog(){
-    console.log(this.blog)
-    let resps = this.blogService.saveBlog(this.blog, this.email);
-    resps.subscribe((data)=>this.resp = data);
-    this.message = "success"
+    let response = this.blogService.saveBlog(this.blog);
+    response.subscribe((data)=>this.resp = data);
+  }
+
+  public loadBlog(){
+    this.router.navigate(["blog-list"]);
   }
 }

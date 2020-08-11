@@ -1,6 +1,5 @@
 export class Blog {
 
-    constructor(public blogName: string, public text:string) {
-        
-    }
+    blogName : string;
+    text : string;
 }

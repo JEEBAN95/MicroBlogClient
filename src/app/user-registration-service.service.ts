@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserRegistrationServiceService {
 
-  constructor(private http: HttpClient) { 
-   
-  }
+  private baseUrl = 'http://localhost:8225/api/user/register'
+  
+  constructor(private http: HttpClient) {  }
 
   public doRegistration(user){
-    return this.http.post("http://localhost:8225/api/user/register", user, {responseType: "text" as "json"});
+    return this.http.post(`${this.baseUrl}`, user);
   }
 }

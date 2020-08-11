@@ -1,7 +1,7 @@
 <div class="container">
        <br><br>
         <h2>Write Your Blog Here</h2> <br><br>
-        <form action="">
+        <form>
           <div class="form-group">
             <label for="blogName">BlogName :</label>
             <input type="text" class="form-control" placeholder="Blog name" id="name" name="name" [(ngModel)]="blog.blogName"  >
@@ -10,6 +10,10 @@
         <label for="text">write about blog :</label>
         <textarea class="form-control" rows="10" id="text" placeholder="Write your blog here" name="text" [(ngModel)]="blog.text"></textarea>
       </div>
-      <button type="submit" class="btn btn-success" (click)="submitBlog()">Submit</button>
+      <button type="submit" class="btn btn-success" (click)="submitBlog()">Submit</button>&nbsp;&nbsp;
+      <span *ngFor="let blog of resp">
+        <span>{{blog.messages}}</span><br><br>
+        <button type="submit" class="btn btn-danger" (click)="loadBlog()">See your blogs</button>
+      </span>
     </form>
 </div>

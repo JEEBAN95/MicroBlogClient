@@ -7,13 +7,15 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { UserRegistrationServiceService } from './user-registration-service.service';
 import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms';
-import { BlogComponent } from './blog/blog.component'
+import { BlogComponent } from './blog/blog.component';
+import { BlogListComponent } from './blog-list/blog-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationComponent,
-    BlogComponent
+    BlogComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
